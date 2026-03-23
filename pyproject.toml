@@ -32,7 +32,7 @@ Issues = "https://github.com/BibleAquifer/aquifer-api-client/issues"
 [tool.poetry.dependencies]
 python = ">=3.11"
 requests = ">=2.31"
-urllib3 = ">=2.0"
+urllib3 = ">=1.26"
 
 [tool.poetry.group.dev.dependencies]
 pytest = ">=8.0"
