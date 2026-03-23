@@ -2,6 +2,8 @@
 
 Python client for the [Aquifer Bible API](https://api.aquifer.bible). Provides typed access to Bibles, resources, Greek alignment data, and more.
 
+Request an API Key: https://www.aquifer.bible/apiaccess 
+
 ## Formal API Documentation
 
 Documentation of the AquiferAPI is available at: https://api.aquifer.bible/docs/index.html?url=/swagger/v1/swagger.json
