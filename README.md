@@ -2,7 +2,13 @@
 
 Python client for the [Aquifer Bible API](https://api.aquifer.bible). Provides typed access to Bibles, resources, Greek alignment data, and more.
 
-Request an API Key: https://www.aquifer.bible/apiaccess 
+The aquifer-api-client hits the Aquifer database (AquiferDB) to access resources granularly through an API. Note that the API used does not directly access resources available on GitHub here, but an upstream database of resources that is used by the [Bible Well mobile app](https://well.bible).
+
+Our longer-term intention is to replace the AquiferDB API with an API and MCP server that provide access to the resources in the BibleAquifer GitHub repositories.
+
+Request an AquiferDB API Key: https://www.aquifer.bible/apiaccess 
+
+Clone and run a demo implementation using `aquifer-api-client`: https://github.com/BibleAquifer/aquifer-api-client-demo
 
 ## Formal API Documentation
 
