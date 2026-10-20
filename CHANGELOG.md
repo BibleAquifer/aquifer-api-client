@@ -27,6 +27,8 @@ parameter and response shape changed; v1 is no longer supported. Existing API ke
 - Default base URL is `https://api2.aquifer.bible`; default request timeout is 60 s
 - Response models are v2 `snake_case` `TypedDict`s; lists are wrapped with `pagination`
 - Retries honor `Retry-After` on 429
+- Static `LANGUAGES` registry checked against v2 `/languages`: added Gujarati (`guj`), removed
+  Japanese (`jpn`, not served), corrected ISO 639-1 codes for `tpi` and `zlm`
 
 ### Removed
 - All v1 methods (Greek alignment dump, collections, `by-language`, numeric content ids)

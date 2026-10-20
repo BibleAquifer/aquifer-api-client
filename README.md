@@ -2,11 +2,11 @@
 
 Python client for the [Aquifer Bible API v2](https://api2.aquifer.bible). Provides typed access to Bibles, study resources and articles, Greek/Hebrew word alignment, the ACAI entity registry, and more. Version 0.2 targets API v2 only; see [Migrating from v0.1](#migrating-from-v01-api-v1).
 
-The aquifer-api-client hits the Aquifer database (AquiferDB) to access resources granularly through an API. Note that the API used does not directly access resources available on GitHub here, but an upstream database of resources that is used by the [Bible Well mobile app](https://well.bible).
+The aquifer-api-client hits the Aquifer database to access resources granularly through an API. Note that the API used does not directly access resources available on GitHub here, but an upstream database of resources.
 
-Our longer-term intention is to replace the AquiferDB API with an API and MCP server that provide access to the resources in the BibleAquifer GitHub repositories.
+Our longer-term intention is to replace the Aquifer database API with an API and MCP server that provide access to the resources in the BibleAquifer GitHub repositories.
 
-Request an AquiferDB API Key: https://www.aquifer.bible/apiaccess (existing v1 keys work with v2).
+Request an Aquifer API Key: https://www.aquifer.bible/apiaccess (existing v1 keys work with v2).
 
 Clone and run a demo implementation using `aquifer-api-client`: https://github.com/BibleAquifer/aquifer-api-client-demo
 
@@ -240,9 +240,6 @@ This release targets the v2 API and is a clean break. Highlights:
 | `get_languages_available_resources` | `get_passage_resource_counts` |
 | `get_resource_by_language` | removed; fetch the sibling via `get_article_available_languages` |
 | camelCase keys, bare-array lists | snake_case keys, wrapped lists with `pagination` |
-
-See the [v1→v2 migration guide](https://github.com/BibleAquifer/api/blob/main/docs/v1_to_v2_migration_guide.md)
-for the field-by-field mapping.
 
 ## Development
 
