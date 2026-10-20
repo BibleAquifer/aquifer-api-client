@@ -5,7 +5,7 @@ import pytest
 from aquifer.client import AquiferClient
 
 TEST_API_KEY = "test-api-key"
-TEST_BASE_URL = "https://api.aquifer.bible"
+TEST_BASE_URL = "https://api2.aquifer.bible"
 
 
 @pytest.fixture
@@ -14,94 +14,61 @@ def client() -> AquiferClient:
     return AquiferClient(api_key=TEST_API_KEY)
 
 
-# ---------------------------------------------------------------------------
-# Sample payloads — used by multiple test modules
-# ---------------------------------------------------------------------------
+def page(page: int, total: int, per_page: int = 100) -> dict:
+    """A v2 ``pagination`` block."""
+    return {
+        "page": page,
+        "per_page": per_page,
+        "total": total,
+        "has_more": page * per_page < total,
+    }
+
+
+LICENSE_INFO = {
+    "title": "Aquifer Open License",
+    "copyright": {"dates": "2024", "holder": {"name": "BiblioNexus", "url": "https://x"}},
+    "licenses": [{"eng": {"name": "CC BY-SA 4.0", "url": "https://creativecommons.org"}}],
+    "show_adaptation_notice_for_english": False,
+    "show_adaptation_notice_for_non_english": True,
+    "adaptation_notice": "<p>Adapted.</p>",
+}
 
 SAMPLE_LANGUAGE = {
+    "language": "eng",
+    "resource_count": 21,
+    "name": "English",
+    "localized_name": "English",
+    "iso639_1": "en",
+    "is_rtl": False,
+    "word_locale": "en_US",
     "id": 1,
-    "code": "eng",
-    "englishDisplay": "English",
-    "localizedDisplay": "English",
-    "scriptDirection": "LTR",
 }
 
 SAMPLE_BIBLE = {
-    "id": 1,
+    "resource_code": "BereanStandardBible",
     "name": "Berean Standard Bible",
     "abbreviation": "BSB",
-    "languageId": 1,
-    "isLanguageDefault": True,
-    "hasAudio": True,
-    "hasGreekAlignment": True,
-    "licenseInfo": {
-        "title": "BSB License",
-        "copyright": {"dates": "2016-2024", "holder": {"name": "Bible Hub", "url": "https://biblehub.com"}},
-        "licenses": [{"eng": {"name": "CC BY 4.0", "url": "https://creativecommons.org/licenses/by/4.0/"}}],
-    },
+    "language_code": "eng",
+    "id": 1,
+    "is_language_default": True,
+    "has_audio": True,
+    "has_alignments": True,
+    "license_info": LICENSE_INFO,
 }
 
-SAMPLE_BIBLE_BOOK = {"name": "Matthew", "code": "MAT"}
-
-SAMPLE_VERSE = {"number": 1, "text": "In the beginning God created the heavens and the earth."}
-
-SAMPLE_CHAPTER = {"number": 1, "verses": [SAMPLE_VERSE]}
-
-SAMPLE_BIBLE_BOOK_TEXT = {
-    "bibleId": 1,
-    "bibleName": "Berean Standard Bible",
-    "bibleAbbreviation": "BSB",
-    "bookName": "Genesis",
-    "bookCode": "GEN",
-    "chapters": [SAMPLE_CHAPTER],
+SAMPLE_ARTICLE = {
+    "resource_code": "AquiferOpenBibleDictionary",
+    "language_code": "eng",
+    "content_id": "3263",
+    "title": "Aaron",
+    "content": "<p>Brother of Moses</p>",
+    "content_format": "html",
 }
 
-SAMPLE_GREEK_WORD = {
-    "word": "Βίβλος",
-    "grammarType": "noun",
-    "usageCode": "N-NSF",
-    "lemma": "βίβλος",
-    "strongsNumber": "G0976",
-}
-
-SAMPLE_ALIGNMENT_WORD = {
-    "number": 1,
-    "word": "This",
-    "nextWordIsInGroup": True,
-    "greekWords": [SAMPLE_GREEK_WORD],
-}
-
-SAMPLE_ALIGNMENT_VERSE = {"number": 1, "words": [SAMPLE_ALIGNMENT_WORD]}
-
-SAMPLE_ALIGNMENT_CHAPTER = {"number": 1, "verses": [SAMPLE_ALIGNMENT_VERSE]}
-
-SAMPLE_GREEK_ALIGNMENT = {
-    "bibleId": 1,
-    "bibleName": "Berean Standard Bible",
-    "bibleAbbreviation": "BSB",
-    "greekBibleAbbreviation": "SBLGNT",
-    "bookName": "Matthew",
-    "bookCode": "MAT",
-    "chapters": [SAMPLE_ALIGNMENT_CHAPTER],
-}
-
-SAMPLE_RESOURCE_SUMMARY = {
-    "id": 42,
-    "name": "Boaz",
-    "localizedName": "Boaz",
-    "reviewLevel": "Professional",
-    "mediaType": "Text",
-    "languageCode": "eng",
-    "grouping": {
-        "type": "Dictionary",
-        "collectionCode": "AquiferOpenBibleDictionary",
-        "collectionTitle": "Aquifer Open Bible Dictionary",
-    },
-}
-
-SAMPLE_SEARCH_RESULT = {
-    "totalItemCount": 1,
-    "returnedItemCount": 1,
-    "offset": 0,
-    "items": [SAMPLE_RESOURCE_SUMMARY],
+SAMPLE_UPDATE_ITEM = {
+    "update_type": "updated",
+    "language_code": "fra",
+    "resource_code": "FIATranslationGuide",
+    "content_id": "1004",
+    "timestamp": "2026-09-01T00:00:00Z",
 }
